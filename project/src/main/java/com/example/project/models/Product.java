@@ -1,10 +1,29 @@
 package com.example.project.models;
 
+import com.sun.javafx.beans.IDProperty;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "products")
 public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "description")
     private String description;
+
+
+    @Column(name = "image")
     private byte[] image;
+
+    @Column(name = "price")
     private double price;
 
     public Product() {
@@ -47,5 +66,13 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }
